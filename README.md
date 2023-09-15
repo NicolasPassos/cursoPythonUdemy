@@ -9,7 +9,4 @@
     .\<nome do ambiente>\Scripts\activate
 
 # Caso o comando acima retorne erro de permissão
-    Abra o PowerShell como administrador e rode o comando:
-        Set-ExecutionPolicy AllSigned -Force
-    Após isso, tente rodar o comando de ativar o ambiente virtual.
-
+    No PowerShell: Set-ExecutionPolicy AllSigned -Force
