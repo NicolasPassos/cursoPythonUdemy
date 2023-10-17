@@ -1,31 +1,46 @@
-"""
-Introdução às funções (def) em Python
-Funções são trechos de código usados para 
-replicar determinada ação ao longo do seu código.
-Elas podem receber valores para parâmetros (argumentos) 
-e retornar um valor específico.
-Por padrão, funções Python retornam None (nada).
-"""
+# Criando um gerador de CPFs
 
+import random
 
-# def Print(a, b, c):
-#     print('Várias1')
-#     print('Várias2')
-#     print('Várias3')
-#     print('Várias4')
+cpf = ''
+lista_multiplicacoes = []
+num_multi = 10
+soma = 0
 
-# def imprimir(a, b, c):
-#     print(a, b, c)
+for i in range(9):
+    cpf += str(random.randint(0,9))
 
+for numero in cpf:
+    lista_multiplicacoes.append(int(numero) * num_multi)
+    num_multi -= 1
 
-# imprimir(1, 2, 3)
-# imprimir(4, 5, 6)
+for item in lista_multiplicacoes:
+    soma += item
+    
+multiplicacao = soma * 10
+resto = multiplicacao % 11
 
-def saudacao(nome='Sem nome'):
-    print(f'Olá, {nome}!')
+if resto > 9:
+    primeiro_digito = 0
+else:
+    primeiro_digito = resto
 
+num_multi = 11
+lista_multiplicacoes = []
+soma = 0
 
-saudacao('Luiz Otávio')
-saudacao('Maria')
-saudacao('Helena')
-saudacao()
+for numero in cpf:
+    lista_multiplicacoes.append(int(numero) * num_multi)
+    num_multi -= 1
+for item in lista_multiplicacoes:
+    soma += item
+multiplicacao = soma * 10
+resto = multiplicacao % 11
+if resto > 9:
+    segundo_digito = 0
+else:
+    segundo_digito = resto
+
+cpf_gerado = cpf+str(primeiro_digito)+str(segundo_digito)
+
+print(f'CPF gerado: {cpf_gerado}')
